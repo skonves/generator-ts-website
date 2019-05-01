@@ -1,0 +1,40 @@
+{
+  "name": "generator-ts-website",
+  "version": "0.0.1",
+  "description": "Generate a blank web application built with Typescript and LESS",
+  "main": "index.js",
+  "files": [ "generators" ],
+  "scripts": {
+    "prebuild": "npm run lint && rm -rf generators/*",
+    "build": "tsc",
+    "postbuild": "cpx \"src/*/templates/**/*\" generators \\\n&& cpx \"src/*/templates/**/.*\" generators",
+    "prepack": "npm run build",
+    "lint": "tslint -c tslint.json -e 'node_modules/**/*' '**/*.ts'",
+    "start": "node ./lib/index.js",
+    "test": "NODE_ENV=test nyc mocha --require source-map-support/register --require ts-node/register --recursive './src/**/*.tests.ts'"
+  },
+  "author": "Steve Konves",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skonves/generator-ts-website.git"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^11.13.8",
+    "@types/yeoman-generator": "^3.1.1",
+    "chai": "^4.2.0",
+    "cpx": "^1.5.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.0.0",
+    "prettier": "^1.17.0",
+    "source-map-support": "^0.5.12",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "yeoman-generator": "^3.2.0"
+  }
+}

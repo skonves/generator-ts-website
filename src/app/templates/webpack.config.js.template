@@ -6,6 +6,18 @@ module.exports = {
   target: 'web',
   entry: './src/index.ts',
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     port: 9000,

@@ -1,9 +1,11 @@
 {
   "name": "generator-ts-website",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate a blank web application built with Typescript and LESS",
   "main": "index.js",
-  "files": [ "generators" ],
+  "files": [
+    "generators"
+  ],
   "scripts": {
     "prebuild": "npm run lint && rm -rf generators/*",
     "build": "tsc",

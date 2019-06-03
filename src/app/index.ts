@@ -57,6 +57,7 @@ module.exports = class extends Generator {
         '@types/mocha',
         '@types/node',
         'chai',
+        'css-hot-loader',
         'css-loader',
         'html-webpack-plugin',
         'less',

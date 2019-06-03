@@ -1,11 +1,15 @@
 const path = require('path');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const mode =
+  process.env['NODE_ENV'] === 'production' ? 'production' : 'development';
+
+const config = {
   target: 'web',
   entry: './src/index.ts',
-  mode: 'production',
+  mode,
   optimization: {
     splitChunks: {
       chunks: 'initial',
@@ -17,10 +21,6 @@ module.exports = {
         },
       },
     },
-  },
-  devServer: {
-    contentBase: path.join(__dirname, 'dist'),
-    port: 9000,
   },
   module: {
     rules: [
@@ -41,11 +41,34 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
   ],
 };
+
+if (mode === 'production') {
+  // Include the hash in output files
+  config.plugins.push(
+    new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
+  );
+} else {
+  // Use the dev server with HMR
+  config.plugins.push(new webpack.HotModuleReplacementPlugin());
+  config.devServer = {
+    contentBase: path.join(__dirname, 'dist'),
+    port: 9000,
+    hot: true,
+  };
+
+  // Add 'css-hot-loader' to the less rule
+  config.module.rules
+    .find(rule => Array.isArray(rule.use) && rule.use.includes('css-loader'))
+    .use.unshift('css-hot-loader');
+
+  // Don't include the hash in output files
+  config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
+  config.output.filename = '[name].js';
+}
+
+module.exports = config;

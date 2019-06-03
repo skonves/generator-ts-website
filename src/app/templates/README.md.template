@@ -12,6 +12,10 @@ The `build` script uses Webpack to perform the transpilation and bundling steps:
 
 Typescript files will be transpiled and bundled in `main.[hash].js`, LESS files imported by .ts files will be bundled in `main.[hash].css`, and both of those files will be reference by `index.html`. (The build output can be found in `./dist`)
 
+To build for production, set the `NODE_ENV` environment variable to `production`:
+
+1. `NODE_ENV=production npm run build`
+
 ### Run the Dev Server with Hot Module Reloading (HMR)
 
 To run the server:

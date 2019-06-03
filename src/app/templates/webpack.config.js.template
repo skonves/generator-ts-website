@@ -69,6 +69,9 @@ if (mode === 'production') {
   // Don't include the hash in output files
   config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
   config.output.filename = '[name].js';
+
+  // Enable source maps
+  config.devtool = 'inline-source-map';
 }
 
 module.exports = config;

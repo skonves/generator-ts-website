@@ -74,6 +74,7 @@ module.exports = class extends Generator {
         'webpack@4',
         'webpack-cli',
         'webpack-dev-server',
+        'webpack-merge',
       ],
       { 'save-dev': true },
     );

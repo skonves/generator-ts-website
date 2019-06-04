@@ -19,7 +19,9 @@ module.exports = class extends Generator {
       '.prettierrc',
       'tsconfig.json',
       'tslint.json',
-      'webpack.config.js',
+      'webpack.common.js',
+      'webpack.dev.js',
+      'webpack.prod.js',
 
       // Source
       join('src', 'custom.d.ts'),

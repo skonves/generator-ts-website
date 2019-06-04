@@ -7,7 +7,7 @@
   "scripts": {
     "prebuild": "npm run lint && rm -rf dist/*",
     "build": "webpack --config webpack.prod.js",
-    "lint": "tslint -c tslint.json -e 'node_modules/**/*' '**/*.ts'",
+    "lint": "prettier --check ./src/**/*.* && tslint -c tslint.json -e 'node_modules/**/*' '**/*.ts'",
     "start": "webpack-dev-server --config webpack.dev.js",
     "test": "NODE_ENV=test nyc mocha --require source-map-support/register --require ts-node/register --recursive './src/**/*.tests.ts'"
   },

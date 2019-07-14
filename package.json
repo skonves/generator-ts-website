@@ -1,6 +1,6 @@
 {
   "name": "generator-ts-website",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Generate a blank web application built with Typescript and LESS",
   "main": "index.js",
   "files": [

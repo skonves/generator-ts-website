@@ -13,7 +13,8 @@
     "prepack": "npm run build",
     "lint": "tslint -c tslint.json -e 'node_modules/**/*' '**/*.ts'",
     "start": "node ./lib/index.js",
-    "test": "NODE_ENV=test nyc mocha --require source-map-support/register --require ts-node/register --recursive './src/**/*.tests.ts'"
+    "test": "NODE_ENV=test nyc mocha --require source-map-support/register --require ts-node/register --recursive './src/**/*.tests.ts'",
+    "dev": "npm run build && npm uninstall -g generator-ts-website && npm i -g ."
   },
   "author": "Steve Konves",
   "license": "MIT",
@@ -37,6 +38,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
-    "yeoman-generator": "^3.2.0"
+    "generator-ts-console": "^1.1.0",
+    "yeoman-generator": "^4.12.0"
   }
 }

@@ -1,3 +1,5 @@
+<%= badges %>
+
 # <%= name %>
 
 <%= description %>
@@ -41,7 +43,7 @@ The entry point of the Typescript files is `./src/index.ts`; therefore, any file
 
 #### Styles
 
-`*.less` files must be imported from Typescript in order to be included in the `.css` bundle. Note that even though the styles are "imported" into a code file, they are NOT inlined into the `.js` bundle. The `MiniCssExtractPlugin` ensures that any LESS styles imported into code are moved from the code into the style bundle. (The `custom.d.ts` file prevents compile-time errors when importing non-Typescript content.)
+`*.less` files must be imported from Typescript in order to be included in the `.css` bundle. Note that even though the styles are "imported" into a code file, they are NOT inlined into the `.js` bundle. The `MiniCssExtractPlugin` ensures that any LESS styles imported into code are moved from the code into the style bundle. (The `less.d.ts` file prevents compile-time errors when importing non-Typescript content.)
 
 Example:
 
@@ -54,3 +56,7 @@ const code = 'goes here';
 #### Markup
 
 Add your markup to `./src/index.html`. This file is used as the "template" when running Webpack. The resulting file will include script and link tags to the `.js` and `.css` bundles.
+
+---
+
+Generated with [generator-ts-website](https://www.npmjs.com/package/generator-ts-website)

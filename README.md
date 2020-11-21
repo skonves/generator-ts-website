@@ -2,12 +2,10 @@
 
 The Galaxy's OKest Typescript and LESS Website Generator for [Yeoman](https://yeoman.io)
 
-- Typescript 3
+- Typescript
 - LESS
-- Webpack 4 (with Dev Server and HMR)
-- Code formatting with Prettier and TSLint
-- Unit testing with Mocha and Chai
-- Code coverage with NYC
+- Webpack + Dev Server
+- Hot Module Reloading
 
 ## How To:
 
@@ -15,6 +13,8 @@ The Galaxy's OKest Typescript and LESS Website Generator for [Yeoman](https://ye
 
 1.  Globally install this generator: `npm install -g generator-ts-website`
 1.  From the root of your new project, run `yo ts-website` (NOTE: run `yo ts-website --help` for options)
+
+This generator is powered by [generator-ts-console](https://www.npmjs.com/package/generator-ts-console). You can use all of that generator's pompts, options, and arguments; however, note that `eslint` is preselected as the linter and cannot be changed.
 
 ### Bundle Typescript and LESS files
 

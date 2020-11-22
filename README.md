@@ -16,6 +16,13 @@ The Galaxy's OKest Typescript and LESS Website Generator for [Yeoman](https://ye
 
 This generator is powered by [generator-ts-console](https://www.npmjs.com/package/generator-ts-console). You can use all of that generator's pompts, options, and arguments; however, note that `eslint` is preselected as the linter and cannot be changed.
 
+### Install React
+
+React is not included by default. However, this generator contains a subgenerator for installing React.
+
+After you have already scaffoled a website, run:
+`yo ts-website:react`
+
 ### Bundle Typescript and LESS files
 
 The generated project includes a Webpack config that handles the transpilation and bundling steps. From within your generated project:

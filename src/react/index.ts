@@ -13,6 +13,21 @@ module.exports = class extends Generator {
         esModuleInterop: true,
       },
     });
+
+    const eslint = this.fs.readJSON(this.destinationPath('.eslintrc.json'));
+
+    this.fs.extendJSON(this.destinationPath('tsconfig.json'), {
+      extends: eslint.extends.includes('plugin:react-hooks/recommended')
+        ? eslint.extends
+        : [...eslint.extends, 'plugin:react-hooks/recommended'],
+      plugins: eslint.plugins.includes('react-hooks')
+        ? eslint.plugins
+        : [...eslint.plugins, 'react-hooks'],
+      rules: {
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'warn',
+      },
+    });
   }
 
   writing() {
@@ -53,7 +68,10 @@ module.exports = class extends Generator {
 
   install() {
     this.npmInstall(['react', 'react-dom']);
-    this.npmInstall(['@types/react', '@types/react-dom'], { 'save-dev': true });
+    this.npmInstall(
+      ['@types/react', '@types/react-dom', 'eslint-plugin-react-hooks'],
+      { 'save-dev': true },
+    );
   }
 };
 

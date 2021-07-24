@@ -43,7 +43,7 @@
     "acorn": "^8.0.4",
     "acorn-walk": "^8.0.0",
     "cheerio": "^1.0.0-rc.3",
-    "generator-ts-console": "^1.1.0",
+    "generator-ts-console": "^1.3.4",
     "prettier": "^2.2.0",
     "yeoman-generator": "^4.12.0"
   }
